@@ -1,0 +1,27 @@
+1) c.<name> wherever I use something from collections, eg. namedtuple
+   or the other way around, use c.<name> when I use my collections
+2) decide whether to return the lower of higher type - probably higher
+   (be pragmatic)
+3) model
+   a) restructure
+   b) save stats with a callback
+4) all serializers and deserializers in a separate folder, with structure like
+   real one
+5) deserializers nicer (all those assertions)
+
+
+
+class Sequence(Reversible[T_co], Collection[T_co]):
+
+class Collection(Sized, Iterable[T_co], Container[T_co]):
+
+Sequence:
+  - override: __getitem__ and __len__
+  - has: __iter__, __contains__, __reversed__
+
+Iterable: __iter__
+Reversible: __reversed__
+Sized: __len__
+Container: __contains__
+
+Mapping: __
